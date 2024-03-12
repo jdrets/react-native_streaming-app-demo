@@ -1,6 +1,5 @@
 import { View } from "react-native";
 import { Text, LayoutWrapper, Image, Icon } from "@/ui";
-import { feedPosts } from "@/mocks/feedPosts";
 import { useEffect, useState } from "react";
 
 export default function Page() {

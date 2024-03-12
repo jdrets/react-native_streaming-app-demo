@@ -31,7 +31,7 @@ export default function Page() {
 
   useEffect(() => {
     if (completeLoad) {
-      router.replace("/(screens)");
+      router.replace("/(screens)/home");
     }
   }, [completeLoad]);
 
