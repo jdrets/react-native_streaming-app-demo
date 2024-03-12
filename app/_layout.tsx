@@ -5,7 +5,7 @@ import { userMockData } from "./mocks";
 export default function RootLayout() {
   return (
     <Providers user={userMockData}>
-      <Stack>
+      <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(screens)" options={{ headerShown: false }} />
       </Stack>
     </Providers>

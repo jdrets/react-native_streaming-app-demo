@@ -5,7 +5,7 @@ export const theme = {
   colors: {
     ...DefaultTheme.colors,
     outline: 'rgba(255, 255, 255, 0.15)',
-    background: 'black',
+    background: '#10151f',
     primary: "rgb(29, 155, 240)",
     primaryContainer: "rgba(29, 155, 240, 0.8)",
     onPrimary: 'white'

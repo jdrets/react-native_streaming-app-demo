@@ -1,15 +1,12 @@
+import { MoviesCategoriesProps } from "@/mocks/home";
 import { View, Text, Image } from "@/ui";
-import { Dimensions, Platform, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
+import { Dimensions, StyleSheet, TouchableOpacity } from "react-native";
 import { Carousel } from "react-native-snap-carousel";
 
-export const MoviesCarrousel = ({
-  name,
-  data,
-}: {
-  name: string;
-  data: { image: string }[];
-}) => {
+export const MoviesCarrousel = ({ name, data }: MoviesCategoriesProps) => {
   const screenWidth = Dimensions.get("window").width;
+  const router = useRouter();
 
   return (
     <View style={{ marginTop: 24 }}>
@@ -20,20 +17,29 @@ export const MoviesCarrousel = ({
         vertical={false}
         data={data}
         renderItem={(data) => (
-          <View
-            style={{
-              height: 150,
-              width: 100,
-            }}
+          <TouchableOpacity
+            onPress={() =>
+              router.push({
+                pathname: "home/screens/movie",
+                params: { id: data.item.id },
+              })
+            }
           >
-            <Image
-              source={{ uri: data.item.image }}
+            <View
               style={{
-                ...StyleSheet.absoluteFillObject,
-                resizeMode: "contain",
+                height: 150,
+                width: 100,
               }}
-            />
-          </View>
+            >
+              <Image
+                source={{ uri: data.item.image }}
+                style={{
+                  ...StyleSheet.absoluteFillObject,
+                  resizeMode: "contain",
+                }}
+              />
+            </View>
+          </TouchableOpacity>
         )}
         sliderWidth={screenWidth}
         itemWidth={108}
